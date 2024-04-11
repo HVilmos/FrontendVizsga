@@ -1,0 +1,30 @@
+
+<div class="container">
+      
+    <div class="mt-3 container d-flex justify-content-center search">
+        <div>
+        <label for="search">Keresés:</label>
+        <input type="text" class="form-control mb-2" id="search" [(ngModel)]="searchTerm">
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-4 g-4">
+        <div class="col" *ngFor="let noveny of novenyek | searchTerm: searchTerm">
+          <div class="card">
+            <img [src]="noveny.kepUrl" class="card-img-top w-100" alt="picture">
+            <div class="card-body">
+                <h5 class="card-title">{{noveny.megnevezes}}</h5>
+                <p class="card-text">{{noveny.leiras}}</p>
+                <p class="card-text">{{noveny.ar}}</p>
+                <div class="d-flex">
+                    <input type="number" [(ngModel)]="noveny.db" placeholder="Mennyiség">
+                    <button type="button" class="btn btn-primary" min="1" value="1" (click)="addOrder(noveny)">Kosárba</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+
+  
+</div>

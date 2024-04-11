@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div class="mb-3">
+        <label for="nev" class="form-label">Név</label>
+        <input type="text" class="form-control w-25" id="nev" name="nev" [(ngModel)]="vasarlonev">
+    </div>
+    <div class="mb-3">
+        <label for="hely" class="form-label">Hely</label>
+        <input type="text" class="form-control w-25" id="hely" name="hely" [(ngModel)]="vasarloHely">
+    </div>
+
+    <div *ngFor="let order of orders" class="d-flex">
+        <p class="me-5 mb-3">{{order.megnevezes}}</p>
+        <input type="number" class="me-5 mb-3" [(ngModel)]="order.db">
+        <p class="me-5 mb-3">{{order.ar}}</p>
+        <button type="button" class="btn btn-primary" (click)="delete(order)">Törlés</button>
+    </div>
+        
+    <button type="button" class="btn btn-primary" (click)="finish()">Rendelés</button>
+</div>
